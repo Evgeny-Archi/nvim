@@ -18,7 +18,11 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- LSP
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+-- gr Goto Reference
+-- gd Goto definition
+vim.keymap.set({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>lrr", vim.lsp.buf.references, { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fa", function()
   vim.cmd(":EslintFixAll")
 end, { noremap = true, silent = true })
