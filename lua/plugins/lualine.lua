@@ -11,12 +11,17 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { {
+          "mode",
+          fmt = function(str)
+            return str:sub(1, 1)
+          end,
+        } },
         lualine_b = { "branch", "diff" },
-        lualine_c = { { "filename", path = 1 }, "diagnostics" },
+        lualine_c = { "diagnostics", { "filename", path = 1 } },
         lualine_x = { {
           require("lsp-progress").progress,
-        }, "encoding", "fileformat" },
+        }, "encoding", "fileformat", "filesize" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

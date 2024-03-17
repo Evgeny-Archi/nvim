@@ -27,6 +27,10 @@ vim.keymap.set("n", "<leader>fa", function()
   vim.cmd(":EslintFixAll")
 end, { noremap = true, silent = true })
 
+-- Diagnostic
+vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- Netrw keybindings
 local function netrw_mappings()
   local bind = function(lhs, rhs)
