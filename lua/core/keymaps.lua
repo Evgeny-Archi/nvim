@@ -10,16 +10,27 @@ vim.keymap.set("n", "J", "mxJ`z")
 -- cursor always in middle of screen when <C-d/u>
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- Do not yank with x
+vim.keymap.set("n", "x", '"_x')
 -- paste selected text without rewriting clipboard
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 -- yank to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+-- Splitting windows
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { silent = true })
+vim.keymap.set('', '<leader>sh', '<C-w>h')
+vim.keymap.set('', '<leader>sl', '<C-w>l')
+vim.keymap.set('', '<leader>sj', '<C-w>j')
+vim.keymap.set('', '<leader>sk', '<C-w>k')
+-- Tabs
+-- gt gT split tab
 
 -- LSP
 -- gr Goto Reference
 -- gd Goto definition
+-- K var documentation
 vim.keymap.set({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>lrr", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename, { noremap = true, silent = true })
@@ -28,8 +39,8 @@ vim.keymap.set("n", "<leader>fa", function()
 end, { noremap = true, silent = true })
 
 -- Diagnostic
-vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Netrw keybindings
 local function netrw_mappings()
@@ -79,3 +90,5 @@ end)
 -- <C-c> exit to normal mod
 -- D delete right to line
 -- P insert copied text before line
+-- <C-o> go back
+-- * jump to same variable
