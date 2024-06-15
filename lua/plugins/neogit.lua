@@ -6,6 +6,10 @@ return {
     "ibhagwan/fzf-lua",
   },
   config = function()
-    require("neogit").setup({})
+    require("neogit").setup({
+      disable_signs = true,
+      graph_style = "unicode",
+      kind = "vsplit",
+    })
   end,
 }

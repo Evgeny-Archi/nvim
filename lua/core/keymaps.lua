@@ -20,10 +20,10 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Splitting windows
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { silent = true })
-vim.keymap.set('', '<leader>sh', '<C-w>h')
-vim.keymap.set('', '<leader>sl', '<C-w>l')
-vim.keymap.set('', '<leader>sj', '<C-w>j')
-vim.keymap.set('', '<leader>sk', '<C-w>k')
+vim.keymap.set("", "<leader>sh", "<C-w>h")
+vim.keymap.set("", "<leader>sl", "<C-w>l")
+vim.keymap.set("", "<leader>sj", "<C-w>j")
+vim.keymap.set("", "<leader>sk", "<C-w>k")
 -- Tabs
 -- gt gT split tab
 
@@ -37,6 +37,11 @@ vim.keymap.set({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename, { noremap = true
 vim.keymap.set("n", "<leader>fa", function()
   vim.cmd(":EslintFixAll")
 end, { noremap = true, silent = true })
+
+-- Git
+vim.keymap.set("n", "<leader>gg", ":Neogit<CR>")
+vim.keymap.set("n", "<leader>ggd", ":Neogit diff<CR>")
+vim.keymap.set("n", "<leader>ggl", ":Neogit log<CR>")
 
 -- Diagnostic
 vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
