@@ -34,6 +34,7 @@ vim.keymap.set("", "<leader>sk", "<C-w>k")
 vim.keymap.set({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>lrr", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fa", function()
   vim.cmd(":EslintFixAll")
 end, { noremap = true, silent = true })
@@ -44,8 +45,8 @@ vim.keymap.set("n", "<leader>ggd", ":Neogit diff<CR>")
 vim.keymap.set("n", "<leader>ggl", ":Neogit log<CR>")
 
 -- Diagnostic
-vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist)
 
 -- Netrw keybindings
 local function netrw_mappings()
@@ -97,3 +98,6 @@ end)
 -- P insert copied text before line
 -- <C-o> go back
 -- * jump to same variable
+
+-- Copy to system clickboard current buffer path
+vim.keymap.set("n", "<leader>cfp", ":let @+ = expand('%:p')<CR>", { desc = "Copied filepath to clickboard" })
