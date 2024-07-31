@@ -5,7 +5,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = require("lualine").refresh,
 })
 -- Netrw
-vim.g.netrw_keepdir = 0
 vim.g.netrw_banner = 0 -- <I> to show banner
 vim.g.netrw_winsize = "20"
 vim.g.netrw_localcopydircmd = "cp -r"
