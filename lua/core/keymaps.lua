@@ -38,6 +38,12 @@ vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, { noremap = true, 
 vim.keymap.set("n", "<leader>fa", function()
   vim.cmd(":EslintFixAll")
 end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>hh", function()
+  vim.lsp.buf.document_highlight()
+end)
+vim.keymap.set("n", "<leader>rh", function()
+  vim.lsp.buf.clear_references()
+end)
 
 -- Git
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>")
@@ -100,4 +106,6 @@ end)
 -- * jump to same variable
 
 -- Copy to system clickboard current buffer path
-vim.keymap.set("n", "<leader>cfp", ":let @+ = expand('%:p')<CR>", { desc = "Copied filepath to clickboard" })
+vim.keymap.set("n", "<leader>cfp", ":let @+ = expand('%')<CR>", { desc = "Copied filepath to clickboard" })
+vim.keymap.set("n", "<leader>lcc", ":! vendor/bin/ecs check " .. vim.fn.expand("%") .. " --config .ecs/default.php<CR>")
+vim.keymap.set("n", "<leader>lcf", ":! vendor/bin/ecs check " .. vim.fn.expand("%") .. " --config .ecs/default.php --fix<CR>")
