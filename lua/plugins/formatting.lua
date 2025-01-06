@@ -14,6 +14,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
+        php = { "easy-coding-standard" },
       },
       format_on_save = false,
     })

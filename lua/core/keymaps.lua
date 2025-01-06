@@ -13,7 +13,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Do not yank with x
 vim.keymap.set("n", "x", '"_x')
 -- paste selected text without rewriting clipboard
-vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set("x", "p", '"_dP')
 -- yank to system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
@@ -77,26 +77,6 @@ vim.api.nvim_create_autocmd("filetype", {
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
--- Trouble
-vim.keymap.set("n", "<leader>xx", function()
-  require("trouble").toggle()
-end)
-vim.keymap.set("n", "<leader>xw", function()
-  require("trouble").toggle("workspace_diagnostics")
-end)
-vim.keymap.set("n", "<leader>xd", function()
-  require("trouble").toggle("document_diagnostics")
-end)
-vim.keymap.set("n", "<leader>xq", function()
-  require("trouble").toggle("quickfix")
-end)
-vim.keymap.set("n", "<leader>xl", function()
-  require("trouble").toggle("loclist")
-end)
-vim.keymap.set("n", "gR", function()
-  require("trouble").toggle("lsp_references")
-end)
-
 -- A move to end line
 -- _ move to star line
 -- <C-c> exit to normal mod
@@ -108,4 +88,22 @@ end)
 -- Copy to system clickboard current buffer path
 vim.keymap.set("n", "<leader>cfp", ":let @+ = expand('%')<CR>", { desc = "Copied filepath to clickboard" })
 vim.keymap.set("n", "<leader>lcc", ":! vendor/bin/ecs check " .. vim.fn.expand("%") .. " --config .ecs/default.php<CR>")
-vim.keymap.set("n", "<leader>lcf", ":! vendor/bin/ecs check " .. vim.fn.expand("%") .. " --config .ecs/default.php --fix<CR>")
+vim.keymap.set(
+  "n",
+  "<leader>lcf",
+  ":! vendor/bin/ecs check " .. vim.fn.expand("%") .. " --config .ecs/default.php --fix<CR>"
+)
+
+-- Telescope
+vim.keymap.set("n", "<leader>ff", function()
+  vim.cmd(":Telescope find_files")
+end)
+vim.keymap.set("n", "<leader>fg", function()
+  vim.cmd(":Telescope live_grep")
+end)
+vim.keymap.set("n", "<leader>fz", function()
+  vim.cmd(":Telescope current_buffer_fuzzy_find")
+end)
+vim.keymap.set("n", "<leader>fs", function()
+  vim.cmd(":Telescope grep_string")
+end)
